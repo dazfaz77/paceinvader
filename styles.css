@@ -1,0 +1,55 @@
+.grille {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1p solid black;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: url(/image/font.jpg);
+    animation: background-defile 10s linear infinite;
+
+}
+
+@keyframes background-defile  {
+    from {
+        background-position-y: 0px;
+
+    }
+
+    to {background-position-y: 980px}
+}
+h3{
+    text-align: center;
+    margin: 20px 0;
+    
+}
+.grille div{
+    width: 25px;
+    height: 25px;
+}
+
+.tireur {
+    background: url(/image/vaisseau1.png);
+    background-position: center;
+    background-size:cover ;
+
+}
+.alien {
+    background: url(/image/z.png);
+     background-position: center;
+    background-size:cover ;
+
+}
+
+.boom {
+    background: url(/image/5380.png);
+     background-position: center;
+    background-size:cover
+}
+
+.laser {
+    background-color: rgb(255, 255, 0);
+    background: url(/image/alien.png);
+    background-size:cover ;
+}
