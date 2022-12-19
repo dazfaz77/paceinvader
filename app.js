@@ -137,13 +137,13 @@ function bougerLesAliens() {
         toutesLesDivs[alienInvaders[i]].classList.add('alien');
     }
 if(toutesLesDivs[tireurPosition].classList.contains('alien', 'tireur')){
-   affichage.textContent = "Game Over";
+   affichage.textContent = "game over";
    toutesLesDivs[tireurPosition].classList.add('boom');
    clearInterval(invaderId);
 }
 for(let i = 0; i < alienInvaders.length; i++){
   if(alienInvaders[i] > toutesLesDivs.length - width);{
-    affichage.textContent = "Game Over";
+    affichage.textContent = "loupé , dsl.";
     clearInterval(invaderId);
   }
 }
@@ -181,7 +181,7 @@ function deplacementLaser(){
 
        resultat++;
        if(resultat === 36){
-        affichage.textContent = " Bravo GG !!";
+        affichage.textContent = " Pas mal , GG !!";
         clearInterval(invaderId);
        } else {
         affichage.textContent = `Score : ${resultat}`;
