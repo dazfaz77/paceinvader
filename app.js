@@ -181,7 +181,7 @@ function deplacementLaser(){
 
        resultat++;
        if(resultat === 36){
-        affichage.textContent = " GG, tu es allé jusqu'au bout :) !!";
+        affichage.textContent = " GG, tu es allé jusqu'au bout  !!";
         clearInterval(invaderId);
        } else {
         affichage.textContent = `Score : ${resultat}`;
