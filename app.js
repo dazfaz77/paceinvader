@@ -181,7 +181,7 @@ function deplacementLaser(){
 
        resultat++;
        if(resultat === 36){
-        affichage.textContent = " Pas mal , GG !!";
+        affichage.textContent = " GG, bonne année @ :) !!";
         clearInterval(invaderId);
        } else {
         affichage.textContent = `Score : ${resultat}`;
