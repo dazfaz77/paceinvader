@@ -57,28 +57,35 @@ indexAttr =0;
 
 creationGrilleEtAlien()
 
+// Remove the event listener for the keydown event
+document.removeEventListener('keydown', deplacerLeTireur)
 
-function deplacerLeTireur(e){
+// Add an event listener for the touchstart event on the container element
+container.addEventListener('touchstart', handleTouchStart);
 
-    toutesLesDivs[tireurPosition].classList.remove('tireur');
-
-    if(e.keyCode === 37){
-        if(tireurPosition > 220){
-            tireurPosition -= 1;
-        } 
-     }
-
-         if(e.keyCode === 39){
-            if(tireurPosition < 239){
-                tireurPosition += 1;
-            }
-
+function handleTouchStart(e) {
+      // If the x coordinate is less than the center of the container, move the shooter left
+  if (x < container.offsetWidth / 2) {
+    if(tireurPosition > 220){
+      tireurPosition -= 1;
     }
-    toutesLesDivs[tireurPosition].classList.add('tireur');
+  }
+  // If the x coordinate is greater than the center of the container, move the shooter right
+  else {
+    if(tireurPosition < 239){
+      tireurPosition += 1;
+    }
+  }
+  
+  toutesLesDivs[tireurPosition].classList.add('tireur');
 }
-    document.addEventListener('keydown', deplacerLeTireur)
 
+// Add an event listener for the touchend event
+container.addEventListener('touchend', handleTouchEnd);
 
+function handleTouchEnd(e) {
+  toutesLesDivs[tireurPosition].classList.remove('tireur');
+}
 //bouger alien//
 let descendreRight = true;
 let descendreLeft = true;
@@ -107,109 +114,7 @@ function bougerLesAliens() {
 
         if(descendreLeft){
             direction = 20;
-            setTimeout(() => {
-               descendreLeft = false; 
-            }, 20);
-        } 
-        else if (descendreLeft === false){
-            direction = 1;
+            setTimeout}
         }
-        descendreRight = true
-        
-        
-       }
-      
-    
     }
-
-
-     
-
-   
-
-    for(let i = 0; i < alienInvaders.length; i++){
-        toutesLesDivs[alienInvaders[i]].classList.remove('alien');
-    }
-    for(let i = 0; i < alienInvaders.length; i++){
-        alienInvaders[i] += direction;
-    }
-    for(let i = 0; i < alienInvaders.length; i++){
-        toutesLesDivs[alienInvaders[i]].classList.add('alien');
-    }
-if(toutesLesDivs[tireurPosition].classList.contains('alien', 'tireur')){
-   affichage.textContent = "game over";
-   toutesLesDivs[tireurPosition].classList.add('boom');
-   clearInterval(invaderId);
 }
-for(let i = 0; i < alienInvaders.length; i++){
-  if(alienInvaders[i] > toutesLesDivs.length - width);{
-    affichage.textContent = "loupé , dsl.";
-    clearInterval(invaderId);
-  }
-}
-
-}
-invaderId = setInterval(bougerLesAliens, 280)
-
-
-
-//le laser
-function tirer(e){
-
-let laserId;
-let laserEnCours = tireurPosition;
-
-
-function deplacementLaser(){
-    toutesLesDivs[laserEnCours].classList.remove('laser');
-    laserEnCours -= 20;
-    toutesLesDivs[laserEnCours].classList.add('laser');
-
-    if(toutesLesDivs[laserEnCours].classList.contains('alien')){
-        toutesLesDivs[laserEnCours].classList.remove('laser');
-        toutesLesDivs[laserEnCours].classList.remove('alien');
-        toutesLesDivs[laserEnCours].classList.add('boom');
-
-
-
-        alienInvaders= alienInvaders.filter(el => el !== laserEnCours)
-
-        setTimeout(() =>{
-            toutesLesDivs[laserEnCours].classList.remove('boom');
-        }, 250)
-       clearInterval(laserId) ;
-
-       resultat++;
-       if(resultat === 36){
-        affichage.textContent = " GG, bonne année @ :) !!";
-        clearInterval(invaderId);
-       } else {
-        affichage.textContent = `Score : ${resultat}`;
-       }
-
-    }
-
-
-
-if(laserEnCours < 20){
-    clearInterval(laserId);
-    setTimeout(() => {
-toutesLesDivs[laserEnCours].classList.remove('laser')
-    }, 100)
-}
-
-
-
-
-}
-if(e.keyCode === 32){
-    laserId = setInterval(() => {
-        deplacementLaser();
-    },100) ;
-}
-
-}
-
-document.addEventListener('keyup' , tirer);
-
-
