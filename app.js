@@ -77,6 +77,7 @@ function deplacerLeTireur(e){
     toutesLesDivs[tireurPosition].classList.add('tireur');
 }
     document.addEventListener('keydown', deplacerLeTireur)
+    document.addEventListener('touchmove', deplacerLeTireur);
 
 
 //bouger alien//
@@ -211,5 +212,9 @@ if(e.keyCode === 32){
 }
 
 document.addEventListener('keyup' , tirer);
+
+
+document.addEventListener('touchstart', tirer);
+
 
 
