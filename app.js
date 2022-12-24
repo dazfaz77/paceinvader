@@ -77,7 +77,6 @@ function deplacerLeTireur(e){
     toutesLesDivs[tireurPosition].classList.add('tireur');
 }
     document.addEventListener('keydown', deplacerLeTireur)
-    document.addEventListener('touchmove', deplacerLeTireur);
 
 
 //bouger alien//
@@ -182,7 +181,7 @@ function deplacementLaser(){
 
        resultat++;
        if(resultat === 36){
-        affichage.textContent = " GG, bonne année @+ !!";
+        affichage.textContent = " GG, bonne année @ :) !!";
         clearInterval(invaderId);
        } else {
         affichage.textContent = `Score : ${resultat}`;
@@ -212,9 +211,5 @@ if(e.keyCode === 32){
 }
 
 document.addEventListener('keyup' , tirer);
-
-
-document.addEventListener('touchstart', tirer);
-
 
 
